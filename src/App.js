@@ -6,9 +6,6 @@ import DescriptionTask from './components/tasks/DescriptionTask'
 import SignIn from './components/auth/SignIn'
 import Signup from './components/auth/SignUp'
 import CreateTask from './components/tasks/CreateTask'
-import { createStore } from 'redux'
-
-const store = createStore();
 
 function App() {
   return (

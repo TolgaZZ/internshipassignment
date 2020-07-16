@@ -1,7 +1,7 @@
 import React from 'react'
 import ListTaskSummary from './ListTaskSummary'
 
-const ListTask = () => {
+const ListTask = ({tasks}) => {
     return (
         <div className="list-task section">
             <table className="highlight #e3f2fd blue lighten-5">
@@ -14,12 +14,11 @@ const ListTask = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <ListTaskSummary/>
-                    <ListTaskSummary/>
-                    <ListTaskSummary/>
-                    <ListTaskSummary/>
-                    <ListTaskSummary/>
-                    <ListTaskSummary/>
+                            { tasks && tasks.map(task => {
+                                return (
+                                    <ListTaskSummary task={task} key={task.id}/>
+                                )
+                            })}
                 </tbody>
             </table>
         </div>
