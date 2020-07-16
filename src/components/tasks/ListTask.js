@@ -4,7 +4,7 @@ import ListTaskSummary from './ListTaskSummary'
 const ListTask = ({tasks}) => {
     return (
         <div className="list-task section">
-            <table className="highlight #e3f2fd blue lighten-5">
+            <table className="highlight">
                 <thead>
                     <tr>
                         <th>Task</th>
@@ -14,18 +14,14 @@ const ListTask = ({tasks}) => {
                     </tr>
                 </thead>
                 <tbody>
-                            { tasks && tasks.map(task => {
-                                return (
-                                    <ListTaskSummary task={task} key={task.id}/>
-                                )
-                            })}
+                    { tasks && tasks.map(task => {
+                        return (
+                            <ListTaskSummary task={task} key={task.id}></ListTaskSummary>
+                        )
+                    })}
                 </tbody>
             </table>
         </div>
     )
 }
-
 export default ListTask
-
-/* <a class="waves-effect waves-light btn-small #304ffe indigo accent-4">Edit</a>
-<a class="waves-effect waves-light btn-small #304ffe indigo accent-4">Delete</a> */

@@ -1,11 +1,17 @@
 import authReducer from './authReducer'
 import taskReducer from './taskReducer'
 import { combineReducers } from 'redux'
-//Here will I combine my reducers
+import {firestoreReducer } from 'redux-firestore'
+import {firebaseReducer } from 'react-redux-firebase'
 
+//Combining the reducers
 const rootReducer = combineReducers({
     auth: authReducer,
-    task: taskReducer
+    task: taskReducer,
+    firestore: firestoreReducer,
+    firebase: firebaseReducer
 })
+
+
 
 export default rootReducer

@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+import * as firebase from "firebase/app";
 import 'firebase/firestore'
 import 'firebase/auth'
 
@@ -12,9 +12,8 @@ var firebaseConfig = {
     appId: "1:839157601814:web:231b8d534ebf5cfe5a4737",
     measurementId: "G-R7BX61DG3L"
   };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.firestore().settings({ timestampInSnapshots: true})
-    // firebase.analytics();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.firestore().settings({ timestampsInSnapshots: true});
 
 export default firebase;

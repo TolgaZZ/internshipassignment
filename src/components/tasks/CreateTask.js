@@ -40,7 +40,7 @@ class CreateTask extends Component {
         )
     }
 }
-
+//Creates tasks and passes in task
 const mapDispatchToProps = (dispatch) => {
     return {
         createTask: (task) => dispatch(createTask(task))

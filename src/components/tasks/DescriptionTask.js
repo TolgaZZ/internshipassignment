@@ -1,17 +1,40 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 function DescriptionTask(props) {
-    const id = props.match.params.id;
-    return (
+    const { task } = props;
+    if (task) {
+        return (
         <div className="container section description-task">
             <div className="card">
                 <div className="card-content">
-                    <span className="card-title">Task Title - {id}</span>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                    <span className="card-title">{ task.title }</span>
+                    <p>{ task.description }</p>
                 </div>
             </div>
         </div>
-    )
+       )} else {
+        return (
+            <div className="container center">
+                <p>Loading task...</p>
+            </div>    
+        )
+    }
 }
-
-export default DescriptionTask
+const mapStateToProps = (state, ownProps) => {
+    // console.log(state)
+    const id = ownProps.match.params.id
+    const tasks = state.firestore.data.tasks;
+    const task = tasks ? tasks[id] : null
+    return {
+        task: task
+    }
+}
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'tasks' }
+    ]),
+)(DescriptionTask)
