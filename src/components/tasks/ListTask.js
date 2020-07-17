@@ -4,7 +4,7 @@ import ListTaskSummary from './ListTaskSummary'
 const ListTask = ({tasks}) => {
     return (
         <div className="list-task section">
-            <table className="highlight">
+            <table className="highlight bordered ">
                 <thead>
                     <tr>
                         <th>Task</th>

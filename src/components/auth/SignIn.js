@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signIn} from '../../store/actions/authActions'
+import { signIn } from '../../store/actions/authActions'
 
 class SignIn extends Component {
     state = {
@@ -34,14 +34,14 @@ class SignIn extends Component {
                     <div className="input-field">
                         <button className="btn #304ffe indigo accent-4">Login</button>
                         <div className="red-text center">
-                        { authError ? <p>{authError}</p> : null}
+                        { authError ? <p>{authError}</p> : null }
                         </div>
                         
                     </div>
                 </form>
             </div>
         )
-    }
+    } 
 }
 
 const mapStateToProp = (state) => {
