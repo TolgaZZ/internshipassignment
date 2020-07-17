@@ -1,9 +1,9 @@
-export const signIn = (credential) => {
+export const signIn = (credentials) => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
 
         firebase.auth().signInWithEmailAndPassword(
-            credential.email,
+            credentials.email,
             credentials.password
         ).then(() => {
             dispatch({ type: 'LOGIN_SUCCES'});
