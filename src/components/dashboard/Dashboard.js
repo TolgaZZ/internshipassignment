@@ -14,6 +14,7 @@ class Dashboard extends Component {
                 <div className="row">
                     <div className="col s12 m12">
                         <ListTask tasks={tasks} />
+                        <h1>Test</h1>
                     </div>
                 </div>
             </div>
